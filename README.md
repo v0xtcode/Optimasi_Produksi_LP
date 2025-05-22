@@ -65,6 +65,6 @@ Solusi optimal untuk studi kasus ini adalah memproduksi 20 unit Produk A dan 30 
 
 ## Pengembang
 Dikembangkan oleh Kelompok 5 - Universitas Hasyim Asyari
-
-## Lisensi
-MIT License - Silakan gunakan dan modifikasi kode dengan bebas dengan menyertakan atribusi yang sesuai. 
+ABU YAZID ALBUSTOMI 	(2395124014)
+LILIS KARIMATUN NISA 		(2395124008)
+ARYANKA SURYA W. 		(2395124022)
