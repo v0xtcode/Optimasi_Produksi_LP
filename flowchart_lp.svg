@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="800" height="1200" viewBox="0 0 800 1200">
+  <defs>
+    <!-- Definisi gradien untuk header -->
+    <linearGradient id="header-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#396afc;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2948ff;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Definisi style untuk connector -->
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="1200" fill="#f8f9fa" />
+  
+  <!-- Header -->
+  <rect width="800" height="60" fill="url(#header-gradient)" />
+  <text x="400" y="38" font-family="Arial" font-size="24" fill="white" text-anchor="middle" font-weight="bold">Diagram Alur Aplikasi Optimasi Produksi Linear Programming</text>
+  
+  <!-- Mulai -->
+  <rect x="350" y="100" width="100" height="50" rx="20" ry="20" fill="#4CAF50" stroke="#333" stroke-width="2" />
+  <text x="400" y="130" font-family="Arial" font-size="16" fill="white" text-anchor="middle">Mulai</text>
+  
+  <!-- Pengguna Mengakses Aplikasi -->
+  <rect x="300" y="180" width="200" height="50" rx="5" ry="5" fill="#E1F5FE" stroke="#333" stroke-width="2" />
+  <text x="400" y="210" font-family="Arial" font-size="14" fill="#333" text-anchor="middle">Pengguna Mengakses Aplikasi</text>
+  
+  <!-- Menampilkan Form Input -->
+  <rect x="300" y="260" width="200" height="50" rx="5" ry="5" fill="#E1F5FE" stroke="#333" stroke-width="2" />
+  <text x="400" y="290" font-family="Arial" font-size="14" fill="#333" text-anchor="middle">Menampilkan Form Input</text>
+  
+  <!-- Pengguna Mengisi Form -->
+  <rect x="300" y="340" width="200" height="50" rx="5" ry="5" fill="#E1F5FE" stroke="#333" stroke-width="2" />
+  <text x="400" y="370" font-family="Arial" font-size="14" fill="#333" text-anchor="middle">Pengguna Mengisi Form</text>
+  
+  <!-- Validasi Input -->
+  <polygon points="400,420 450,455 400,490 350,455" fill="#FFF9C4" stroke="#333" stroke-width="2" />
+  <text x="400" y="460" font-family="Arial" font-size="14" fill="#333" text-anchor="middle">Input Valid?</text>
+  
+  <!-- Pesan Error -->
+  <rect x="500" y="430" width="200" height="50" rx="5" ry="5" fill="#FFCDD2" stroke="#333" stroke-width="2" />
+  <text x="600" y="460" font-family="Arial" font-size="14" fill="#333" text-anchor="middle">Tampilkan Pesan Error</text>
+  
+  <!-- Membangun Model LP -->
+  <rect x="300" y="520" width="200" height="50" rx="5" ry="5" fill="#E1F5FE" stroke="#333" stroke-width="2" />
+  <text x="400" y="550" font-family="Arial" font-size="14" fill="#333" text-anchor="middle">Membangun Model LP</text>
+  
+  <!-- Proses Optimasi -->
+  <rect x="300" y="600" width="200" height="60" rx="5" ry="5" fill="#E8F5E9" stroke="#333" stroke-width="2" />
+  <text x="400" y="630" font-family="Arial" font-size="14" fill="#333" text-anchor="middle">Menjalankan Algoritma</text>
+  <text x="400" y="650" font-family="Arial" font-size="14" fill="#333" text-anchor="middle">Optimasi Linear Programming</text>
+  
+  <!-- Cek Solusi -->
+  <polygon points="400,690 450,725 400,760 350,725" fill="#FFF9C4" stroke="#333" stroke-width="2" />
+  <text x="400" y="730" font-family="Arial" font-size="14" fill="#333" text-anchor="middle">Solusi Ditemukan?</text>
+  
+  <!-- Pesan Error Optimasi -->
+  <rect x="500" y="700" width="200" height="50" rx="5" ry="5" fill="#FFCDD2" stroke="#333" stroke-width="2" />
+  <text x="600" y="730" font-family="Arial" font-size="14" fill="#333" text-anchor="middle">Tampilkan Pesan Error</text>
+  
+  <!-- Hitung Hasil Optimasi -->
+  <rect x="300" y="790" width="200" height="50" rx="5" ry="5" fill="#E1F5FE" stroke="#333" stroke-width="2" />
+  <text x="400" y="820" font-family="Arial" font-size="14" fill="#333" text-anchor="middle">Hitung Hasil Optimasi</text>
+  
+  <!-- Visualisasi Grafik -->
+  <rect x="300" y="870" width="200" height="50" rx="5" ry="5" fill="#E1F5FE" stroke="#333" stroke-width="2" />
+  <text x="400" y="900" font-family="Arial" font-size="14" fill="#333" text-anchor="middle">Buat Visualisasi Grafik</text>
+  
+  <!-- Tampilkan Hasil -->
+  <rect x="300" y="950" width="200" height="50" rx="5" ry="5" fill="#E1F5FE" stroke="#333" stroke-width="2" />
+  <text x="400" y="980" font-family="Arial" font-size="14" fill="#333" text-anchor="middle">Tampilkan Hasil ke Pengguna</text>
+  
+  <!-- Pengguna Melihat Hasil -->
+  <rect x="300" y="1030" width="200" height="50" rx="5" ry="5" fill="#E1F5FE" stroke="#333" stroke-width="2" />
+  <text x="400" y="1060" font-family="Arial" font-size="14" fill="#333" text-anchor="middle">Pengguna Melihat Hasil</text>
+  
+  <!-- Selesai -->
+  <rect x="350" y="1110" width="100" height="50" rx="20" ry="20" fill="#F44336" stroke="#333" stroke-width="2" />
+  <text x="400" y="1140" font-family="Arial" font-size="16" fill="white" text-anchor="middle">Selesai</text>
+  
+  <!-- Connectors -->
+  <!-- Mulai -> Pengguna Mengakses Aplikasi -->
+  <line x1="400" y1="150" x2="400" y2="180" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" />
+  
+  <!-- Pengguna Mengakses Aplikasi -> Menampilkan Form Input -->
+  <line x1="400" y1="230" x2="400" y2="260" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" />
+  
+  <!-- Menampilkan Form Input -> Pengguna Mengisi Form -->
+  <line x1="400" y1="310" x2="400" y2="340" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" />
+  
+  <!-- Pengguna Mengisi Form -> Validasi Input -->
+  <line x1="400" y1="390" x2="400" y2="420" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" />
+  
+  <!-- Validasi Input -> Pesan Error (Tidak) -->
+  <line x1="450" y1="455" x2="500" y2="455" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" />
+  <text x="465" y="445" font-family="Arial" font-size="12" fill="#333">Tidak</text>
+  
+  <!-- Pesan Error -> Pengguna Mengisi Form -->
+  <path d="M 600 430 L 600 365 L 500 365" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrowhead)" />
+  
+  <!-- Validasi Input -> Membangun Model LP (Ya) -->
+  <line x1="400" y1="490" x2="400" y2="520" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" />
+  <text x="410" y="510" font-family="Arial" font-size="12" fill="#333">Ya</text>
+  
+  <!-- Membangun Model LP -> Proses Optimasi -->
+  <line x1="400" y1="570" x2="400" y2="600" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" />
+  
+  <!-- Proses Optimasi -> Cek Solusi -->
+  <line x1="400" y1="660" x2="400" y2="690" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" />
+  
+  <!-- Cek Solusi -> Pesan Error Optimasi (Tidak) -->
+  <line x1="450" y1="725" x2="500" y2="725" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" />
+  <text x="465" y="715" font-family="Arial" font-size="12" fill="#333">Tidak</text>
+  
+  <!-- Pesan Error Optimasi -> Pengguna Mengisi Form -->
+  <path d="M 600 700 L 600 320 L 500 320" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrowhead)" />
+  
+  <!-- Cek Solusi -> Hitung Hasil Optimasi (Ya) -->
+  <line x1="400" y1="760" x2="400" y2="790" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" />
+  <text x="410" y="780" font-family="Arial" font-size="12" fill="#333">Ya</text>
+  
+  <!-- Hitung Hasil Optimasi -> Visualisasi Grafik -->
+  <line x1="400" y1="840" x2="400" y2="870" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" />
+  
+  <!-- Visualisasi Grafik -> Tampilkan Hasil -->
+  <line x1="400" y1="920" x2="400" y2="950" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" />
+  
+  <!-- Tampilkan Hasil -> Pengguna Melihat Hasil -->
+  <line x1="400" y1="1000" x2="400" y2="1030" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" />
+  
+  <!-- Pengguna Melihat Hasil -> Selesai -->
+  <line x1="400" y1="1080" x2="400" y2="1110" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" />
+  
+  <!-- Subproses: Membangun Model LP -->
+  <rect x="50" y="480" width="200" height="130" rx="5" ry="5" fill="#E8EAF6" stroke="#333" stroke-width="2" stroke-dasharray="5,5" />
+  <text x="150" y="500" font-family="Arial" font-size="14" fill="#333" text-anchor="middle" font-weight="bold">Subproses: Membangun Model LP</text>
+  <text x="150" y="525" font-family="Arial" font-size="12" fill="#333" text-anchor="middle">1. Definisi variabel keputusan</text>
+  <text x="150" y="545" font-family="Arial" font-size="12" fill="#333" text-anchor="middle">2. Definisi fungsi tujuan</text>
+  <text x="150" y="565" font-family="Arial" font-size="12" fill="#333" text-anchor="middle">3. Definisi batasan sumber daya</text>
+  <text x="150" y="585" font-family="Arial" font-size="12" fill="#333" text-anchor="middle">4. Definisi batasan non-negatif</text>
+  <line x1="250" y1="545" x2="300" y2="545" stroke="#333" stroke-width="2" stroke-dasharray="5,5" />
+  
+  <!-- Subproses: Hitung Hasil Optimasi -->
+  <rect x="50" y="750" width="200" height="130" rx="5" ry="5" fill="#E8EAF6" stroke="#333" stroke-width="2" stroke-dasharray="5,5" />
+  <text x="150" y="770" font-family="Arial" font-size="14" fill="#333" text-anchor="middle" font-weight="bold">Subproses: Hitung Hasil</text>
+  <text x="150" y="795" font-family="Arial" font-size="12" fill="#333" text-anchor="middle">1. Ekstraksi nilai variabel</text>
+  <text x="150" y="815" font-family="Arial" font-size="12" fill="#333" text-anchor="middle">2. Hitung jumlah produk A</text>
+  <text x="150" y="835" font-family="Arial" font-size="12" fill="#333" text-anchor="middle">3. Hitung jumlah produk B</text>
+  <text x="150" y="855" font-family="Arial" font-size="12" fill="#333" text-anchor="middle">4. Hitung total keuntungan</text>
+  <line x1="250" y1="815" x2="300" y2="815" stroke="#333" stroke-width="2" stroke-dasharray="5,5" />
+  
+  <!-- Subproses: Visualisasi Grafik -->
+  <rect x="550" y="840" width="200" height="110" rx="5" ry="5" fill="#E8EAF6" stroke="#333" stroke-width="2" stroke-dasharray="5,5" />
+  <text x="650" y="860" font-family="Arial" font-size="14" fill="#333" text-anchor="middle" font-weight="bold">Subproses: Visualisasi</text>
+  <text x="650" y="885" font-family="Arial" font-size="12" fill="#333" text-anchor="middle">1. Gambar batasan sumber daya</text>
+  <text x="650" y="905" font-family="Arial" font-size="12" fill="#333" text-anchor="middle">2. Tandai daerah feasible</text>
+  <text x="650" y="925" font-family="Arial" font-size="12" fill="#333" text-anchor="middle">3. Tandai titik optimal</text>
+  <text x="650" y="945" font-family="Arial" font-size="12" fill="#333" text-anchor="middle">4. Gambar garis iso-profit</text>
+  <line x1="550" y1="895" x2="500" y2="895" stroke="#333" stroke-width="2" stroke-dasharray="5,5" />
+  
+  <!-- Footer -->
+  <text x="400" y="1180" font-family="Arial" font-size="14" fill="#666" text-anchor="middle">© 2025 Kelompok 5 - Aplikasi Optimasi Produksi Linear Programming</text>
+</svg> 

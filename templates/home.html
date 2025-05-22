@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optimasi Produksi - Linear Programming</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='style.css', v=1) }}" rel="stylesheet">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar Kapsul Glassmorphism -->
+    <div class="navbar-container">
+        <div class="navbar-capsule">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link active" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/app">Aplikasi</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h1 class="hero-title">Optimasi Produksi dengan Linear Programming</h1>
+                    <p class="lead mb-4">Maksimalkan keuntungan perusahaan Anda dengan mengalokasikan sumber daya secara optimal melalui pendekatan matematis yang canggih.</p>
+                    <a href="/app" class="btn cta-button btn-lg">Mulai Optimasi</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section py-5">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="section-title">Tentang Kami - Kelompok 5</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="profile-card" style="--card-color-start: #3a86ff; --card-color-end: #5e60ce;">
+                        <div class="card-body text-center">
+                            <div class="profile-img-container">
+                                <img src="https://ui-avatars.com/api/?name=Anggota+1&size=200&background=3a86ff&color=fff" alt="Anggota 1" class="profile-img">
+                            </div>
+                            <h4 class="card-title">Abu Yazid Albustomi</h4>
+                            <p class="text-muted">2395124014</p>
+                            <span class="profile-role">Ketua Kelompok</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="profile-card" style="--card-color-start: #3a86ff; --card-color-end: #8338ec;">
+                        <div class="card-body text-center">
+                            <div class="profile-img-container">
+                                <img src="https://ui-avatars.com/api/?name=Anggota+2&size=200&background=5e60ce&color=fff" alt="Anggota 2" class="profile-img">
+                            </div>
+                            <h4 class="card-title">Lilis Karimatun Nisa</h4>
+                            <p class="text-muted">2395124008</p>
+                            <span class="profile-role">Pengembang Frontend</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="profile-card" style="--card-color-start: #5e60ce; --card-color-end: #8338ec;">
+                        <div class="card-body text-center">
+                            <div class="profile-img-container">
+                                <img src="https://ui-avatars.com/api/?name=Anggota+3&size=200&background=8338ec&color=fff" alt="Anggota 3" class="profile-img">
+                            </div>
+                            <h4 class="card-title">Aryanka Sura Wirajadikusuma</h4>
+                            <p class="text-muted">2395124022</p>
+                            <span class="profile-role">Pengembang Backend</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Section -->
+    <section class="project-section py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="section-title">Tentang Proyek</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-card">
+                        <h4>Latar Belakang</h4>
+                        <p>Aplikasi ini dikembangkan sebagai bagian dari tugas mata kuliah Sistem Pendukung Keputusan di Universitas Hasyim Asyari. Aplikasi ini bertujuan untuk menerapkan konsep Linear Programming dalam konteks optimasi produksi yang relevan dengan dunia bisnis dan industri.</p>
+                        
+                        <h4 class="mt-5">Tujuan</h4>
+                        <ul>
+                            <li>Mengimplementasikan metode Linear Programming dalam bentuk aplikasi web interaktif</li>
+                            <li>Membantu perusahaan dalam mengoptimalkan perencanaan produksi</li>
+                            <li>Memvisualisasikan hasil optimasi agar lebih mudah dipahami</li>
+                            <li>Memberikan analisis mendalam tentang penggunaan sumber daya dan faktor pembatas</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-card">
+                        <h4>Metodologi</h4>
+                        <p>Aplikasi ini menggunakan pendekatan Linear Programming untuk menyelesaikan masalah optimasi produksi. Linear Programming adalah teknik matematis yang mencari solusi optimal dari fungsi tujuan linear dengan mempertimbangkan sejumlah batasan linear.</p>
+                        <p>Dalam konteks aplikasi ini, fungsi tujuan adalah memaksimalkan keuntungan total, sementara batasan-batasannya adalah ketersediaan sumber daya seperti bahan baku dan tenaga kerja.</p>
+                        
+                        <h4 class="mt-5">Teknologi</h4>
+                        <div class="tech-stack">
+                            <div class="tech-icon" title="Flask"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" width="30" /></div>
+                            <div class="tech-icon" title="Python"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="30" /></div>
+                            <div class="tech-icon" title="NumPy"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" width="30" /></div>
+                            <div class="tech-icon" title="JavaScript"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" width="30" /></div>
+                            <div class="tech-icon" title="Bootstrap"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" width="30" /></div>
+                            <div class="tech-icon" title="HTML5"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" width="30" /></div>
+                            <div class="tech-icon" title="CSS3"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" width="30" /></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <!-- How It Works Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="section-title">Cara Kerja</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="card feature-card h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon">1️⃣</div>
+                            <h5 class="card-title">Input Data</h5>
+                            <p class="card-text">Masukkan data keuntungan, kebutuhan, dan ketersediaan sumber daya.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card feature-card h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon">2️⃣</div>
+                            <h5 class="card-title">Proses Optimasi</h5>
+                            <p class="card-text">Algoritma Linear Programming mencari solusi optimal secara matematika.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card feature-card h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon">3️⃣</div>
+                            <h5 class="card-title">Hasil Perhitungan</h5>
+                            <p class="card-text">Mendapatkan jumlah produksi optimal untuk memaksimalkan keuntungan.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card feature-card h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon">4️⃣</div>
+                            <h5 class="card-title">Analisis Hasil</h5>
+                            <p class="card-text">Memahami hasil optimasi dan implikasinya untuk strategi bisnis.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <a href="/app" class="btn cta-button">Coba Sekarang</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-auto footer-capsule">
+                    <p class="mb-0">&copy; 2025 - Dibuat oleh Kelompok 5</p>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+
+        // Script untuk tombol Back to Top
+        document.querySelector('.back-to-top').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Tampilkan atau sembunyikan tombol Back to Top berdasarkan scroll
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                document.querySelector('.back-to-top').style.opacity = '1';
+            } else {
+                document.querySelector('.back-to-top').style.opacity = '0';
+            }
+        });
+    </script>
+</body>
+</html> 

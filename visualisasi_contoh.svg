@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="600" height="600" xmlns="http://www.w3.org/2000/svg">
+    <style>
+        .bg { fill: white; }
+        .axis { stroke: #333333; stroke-width: 2; }
+        .grid { stroke: #dddddd; stroke-width: 1; stroke-dasharray: 4,4; }
+        .constraint { stroke-width: 2.5; }
+        .feasible { fill: rgba(220, 240, 255, 0.4); }
+        .point { fill: black; }
+        .optimal-point { fill: black; stroke: white; stroke-width: 1; }
+        .text { font-family: Arial, sans-serif; fill: #333333; }
+        .title { font-family: Arial, sans-serif; font-size: 18px; font-weight: bold; text-anchor: middle; fill: #333333; }
+        .label { font-family: Arial, sans-serif; font-size: 14px; fill: #333333; text-anchor: middle; }
+        .point-label { font-family: Arial, sans-serif; font-size: 12px; fill: #333333; text-anchor: start; }
+        .legend { font-family: Arial, sans-serif; font-size: 12px; fill: #333333; text-anchor: start; }
+    </style>
+    
+    <!-- Background -->
+    <rect x="0" y="0" width="600" height="600" class="bg" />
+    
+    <!-- Title -->
+    <text x="300" y="30" class="title">Visualisasi Solusi Optimasi Linear Programming</text>
+    
+    <!-- Grid -->
+    <g transform="translate(60, 520)">
+        <!-- Vertical grid lines -->
+        <line x1="0" y1="0" x2="0" y2="-440" class="grid" />
+        <line x1="60" y1="0" x2="60" y2="-440" class="grid" />
+        <line x1="120" y1="0" x2="120" y2="-440" class="grid" />
+        <line x1="180" y1="0" x2="180" y2="-440" class="grid" />
+        <line x1="240" y1="0" x2="240" y2="-440" class="grid" />
+        <line x1="300" y1="0" x2="300" y2="-440" class="grid" />
+        <line x1="360" y1="0" x2="360" y2="-440" class="grid" />
+        <line x1="420" y1="0" x2="420" y2="-440" class="grid" />
+        <line x1="480" y1="0" x2="480" y2="-440" class="grid" />
+        
+        <!-- Horizontal grid lines -->
+        <line x1="0" y1="0" x2="480" y2="0" class="grid" />
+        <line x1="0" y1="-60" x2="480" y2="-60" class="grid" />
+        <line x1="0" y1="-120" x2="480" y2="-120" class="grid" />
+        <line x1="0" y1="-180" x2="480" y2="-180" class="grid" />
+        <line x1="0" y1="-240" x2="480" y2="-240" class="grid" />
+        <line x1="0" y1="-300" x2="480" y2="-300" class="grid" />
+        <line x1="0" y1="-360" x2="480" y2="-360" class="grid" />
+        <line x1="0" y1="-420" x2="480" y2="-420" class="grid" />
+        
+        <!-- X and Y axis -->
+        <line x1="0" y1="0" x2="480" y2="0" class="axis" />
+        <line x1="0" y1="0" x2="0" y2="-440" class="axis" />
+        
+        <!-- X axis ticks and labels -->
+        <line x1="0" y1="0" x2="0" y2="5" stroke="#333333" />
+        <line x1="60" y1="0" x2="60" y2="5" stroke="#333333" />
+        <line x1="120" y1="0" x2="120" y2="5" stroke="#333333" />
+        <line x1="180" y1="0" x2="180" y2="5" stroke="#333333" />
+        <line x1="240" y1="0" x2="240" y2="5" stroke="#333333" />
+        <line x1="300" y1="0" x2="300" y2="5" stroke="#333333" />
+        <line x1="360" y1="0" x2="360" y2="5" stroke="#333333" />
+        <line x1="420" y1="0" x2="420" y2="5" stroke="#333333" />
+        <line x1="480" y1="0" x2="480" y2="5" stroke="#333333" />
+        
+        <text x="0" y="20" class="label" style="text-anchor: middle;">0</text>
+        <text x="60" y="20" class="label" style="text-anchor: middle;">10</text>
+        <text x="120" y="20" class="label" style="text-anchor: middle;">20</text>
+        <text x="180" y="20" class="label" style="text-anchor: middle;">30</text>
+        <text x="240" y="20" class="label" style="text-anchor: middle;">40</text>
+        <text x="300" y="20" class="label" style="text-anchor: middle;">50</text>
+        <text x="360" y="20" class="label" style="text-anchor: middle;">60</text>
+        <text x="420" y="20" class="label" style="text-anchor: middle;">70</text>
+        <text x="480" y="20" class="label" style="text-anchor: middle;">80</text>
+        
+        <!-- Y axis ticks and labels -->
+        <line x1="0" y1="0" x2="-5" y2="0" stroke="#333333" />
+        <line x1="0" y1="-60" x2="-5" y2="-60" stroke="#333333" />
+        <line x1="0" y1="-120" x2="-5" y2="-120" stroke="#333333" />
+        <line x1="0" y1="-180" x2="-5" y2="-180" stroke="#333333" />
+        <line x1="0" y1="-240" x2="-5" y2="-240" stroke="#333333" />
+        <line x1="0" y1="-300" x2="-5" y2="-300" stroke="#333333" />
+        <line x1="0" y1="-360" x2="-5" y2="-360" stroke="#333333" />
+        <line x1="0" y1="-420" x2="-5" y2="-420" stroke="#333333" />
+        
+        <text x="-10" y="0" class="label" style="text-anchor: end;">0</text>
+        <text x="-10" y="-60" class="label" style="text-anchor: end;">10</text>
+        <text x="-10" y="-120" class="label" style="text-anchor: end;">20</text>
+        <text x="-10" y="-180" class="label" style="text-anchor: end;">30</text>
+        <text x="-10" y="-240" class="label" style="text-anchor: end;">40</text>
+        <text x="-10" y="-300" class="label" style="text-anchor: end;">50</text>
+        <text x="-10" y="-360" class="label" style="text-anchor: end;">60</text>
+        <text x="-10" y="-420" class="label" style="text-anchor: end;">70</text>
+        
+        <!-- Axis labels -->
+        <text x="240" y="40" class="label">Jumlah Produk A</text>
+        <text x="-40" y="-220" class="label" transform="rotate(-90, -40, -220)">Jumlah Produk B</text>
+        
+        <!-- Constraints -->
+        <!-- Bahan A: 2x + y ≤ 100 => y ≤ 100 - 2x -->
+        <path d="M 0 -300 L 150 0" stroke="red" class="constraint" />
+        
+        <!-- Bahan B: x + 2y ≤ 80 => y ≤ (80 - x)/2 -->
+        <path d="M 0 -240 L 240 -120 L 480 0" stroke="green" class="constraint" />
+        
+        <!-- Tenaga Kerja: 3x + 2y ≤ 120 => y ≤ (120 - 3x)/2 -->
+        <path d="M 0 -360 L 80 -300 L 240 -120 L 400 0" stroke="blue" class="constraint" />
+        
+        <!-- Feasible region -->
+        <path d="M 0 0 L 0 -240 L 240 -120 L 120 0 Z" class="feasible" />
+        
+        <!-- Optimal point (20, 30) -->
+        <circle cx="120" cy="-180" r="6" class="optimal-point" />
+        <text x="125" y="-190" class="point-label">(20, 30)</text>
+        
+        <!-- Isoprofit line (5000x + 7000y = 310000) => y = (310000 - 5000x)/7000 -->
+        <path d="M 0 -265.7 L 120 -180 L 240 -94.3 L 310 -50" stroke="black" stroke-width="2" stroke-dasharray="6,4" />
+        
+        <!-- Legend -->
+        <rect x="320" y="-400" width="160" height="130" fill="white" stroke="#dddddd" />
+        <line x1="330" y1="-380" x2="360" y2="-380" stroke="red" stroke-width="2.5" />
+        <text x="370" y="-380" class="legend">Batasan Bahan A</text>
+        
+        <line x1="330" y1="-350" x2="360" y2="-350" stroke="green" stroke-width="2.5" />
+        <text x="370" y="-350" class="legend">Batasan Bahan B</text>
+        
+        <line x1="330" y1="-320" x2="360" y2="-320" stroke="blue" stroke-width="2.5" />
+        <text x="370" y="-320" class="legend">Batasan Tenaga Kerja</text>
+        
+        <line x1="330" y1="-290" x2="360" y2="-290" stroke="black" stroke-width="2" stroke-dasharray="6,4" />
+        <text x="370" y="-290" class="legend">Iso-profit (Rp 310.000)</text>
+    </g>
+</svg> 

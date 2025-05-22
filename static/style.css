@@ -1,0 +1,899 @@
+/* Definisi variabel warna dengan root */
+:root {
+    /* Warna utama */
+    --primary-color: #396afc;
+    --secondary-color: #4873ff;
+    --tertiary-color: #335eff;
+    --accent-color: #306dff;
+    --accent-2-color: #4e6fff;
+    
+    /* Card colors */
+    --card-color-start: var(--primary-color);
+    --card-color-end: var(--secondary-color);
+    
+    /* Warna gradient */
+    --gradient-primary: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    --gradient-secondary: linear-gradient(135deg, var(--primary-color), var(--tertiary-color));
+    --gradient-tertiary: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    
+    /* Warna background dan teks */
+    --bg-light: #f1f5ff; 
+    --bg-lighter: #e4eeff;
+    --bg-light-alt: #f8faff;
+    --text-dark: #333;
+    --text-medium: #444;
+    --text-light: #666;
+    
+    /* Warna utility */
+    --white: #fff;
+    --black: rgba(0, 0, 0, 0.8);
+    --transparent-white: rgba(255, 255, 255, 0.9);
+    --transparent-black-05: rgba(0, 0, 0, 0.05);
+    --transparent-black-1: rgba(0, 0, 0, 0.1);
+    --transparent-primary-05: rgba(58, 134, 255, 0.05);
+    --transparent-primary-08: rgba(58, 134, 255, 0.08);
+    --transparent-primary-2: rgba(58, 134, 255, 0.2);
+    --transparent-primary-3: rgba(58, 134, 255, 0.3);
+    
+    /* Shadows */
+    --shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.05);
+    --shadow-lg: 0 15px 35px rgba(0, 0, 0, 0.05);
+    --shadow-primary: 0 5px 15px rgba(58, 134, 255, 0.2);
+    --shadow-primary-lg: 0 10px 25px rgba(48, 109, 255, 0.3);
+    --shadow-primary-xl: 0 20px 40px rgba(51, 94, 255, 0.25);
+}
+
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding-top: 0;
+    background-color: var(--bg-light);
+    overflow-x: hidden;
+}
+
+/* Tambahan style untuk navbar kapsul */
+.navbar-container {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    width: auto;
+    padding: 0;
+}
+
+.navbar-capsule {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 50px;
+    padding: 10px 20px;
+    box-shadow: 0 8px 32px var(--transparent-black-1);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    display: flex;
+    justify-content: center;
+}
+
+.navbar-capsule .nav-link {
+    color: var(--text-dark);
+    font-weight: 600;
+    padding: 8px 20px;
+    margin: 0 5px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.navbar-capsule .nav-link:hover,
+.navbar-capsule .nav-link.active {
+    background-color: var(--primary-color);
+    color: var(--white);
+    box-shadow: var(--shadow-primary);
+}
+
+/* Styling baru untuk halaman about yang lebih modern */
+.hero-about {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: var(--gradient-primary);
+    margin-top: -90px; /* Kompensasi untuk navbar */
+}
+
+.hero-about::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://images.unsplash.com/photo-1532939624-3af1308db9a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1679&q=80');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.15;
+}
+
+.hero-about .container {
+    position: relative;
+    z-index: 10;
+}
+
+.hero-about-title {
+    font-size: 5rem;
+    font-weight: 800;
+    color: var(--white);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 0;
+    line-height: 1.1;
+}
+
+.hero-about-subtitle {
+    font-size: 1.5rem;
+    color: var(--transparent-white);
+    margin-top: 20px;
+    max-width: 800px;
+}
+
+/* Team Cards styling */
+.team-section {
+    padding: 100px 0;
+    position: relative;
+}
+
+.team-section::before {
+    content: "";
+    position: absolute;
+    top: -100px;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(to bottom, var(--secondary-color), transparent);
+    z-index: -1;
+}
+
+.profile-card {
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    background: var(--white);
+    box-shadow: var(--shadow-md);
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 1;
+    border: none;
+    transform: none;
+}
+
+.profile-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--card-color-start), var(--card-color-end));
+    opacity: 0;
+    z-index: -1;
+    transition: all 0.5s ease;
+}
+
+.profile-card .card-body {
+    padding: 30px 20px;
+    position: relative;
+    z-index: 2;
+    transition: all 0.5s ease;
+}
+
+.profile-img-container {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 30px;
+    position: relative;
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    object-fit: cover;
+    box-shadow: 0 10px 30px var(--transparent-black-1);
+    transition: all 0.5s ease;
+    transform: none;
+}
+
+.profile-role {
+    display: inline-block;
+    padding: 8px 15px;
+    background: linear-gradient(90deg, var(--card-color-start), var(--card-color-end));
+    border-radius: 30px;
+    color: var(--white);
+    font-weight: 600;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.social-links {
+    margin-top: 25px;
+}
+
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: 0 5px;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-dark);
+    font-size: 16px;
+    transition: all 0.3s ease;
+    transform: none;
+}
+
+.project-section {
+    padding: 80px 0;
+    background-color: var(--bg-light-alt);
+    position: relative;
+}
+
+.section-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+
+.text-center .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    width: 80px;
+    height: 5px;
+    background: var(--gradient-primary);
+    border-radius: 5px;
+    transform: translateX(-50%);
+}
+
+.text-center .section-title {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.project-card {
+    border-radius: 20px;
+    overflow: hidden;
+    background: var(--white);
+    box-shadow: 0 10px 30px var(--transparent-black-05);
+    border: none;
+    padding: 40px;
+    height: 100%;
+    transition: all 0.3s ease;
+}
+
+.project-card:hover {
+    transform: none;
+}
+
+.project-card h4 {
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.project-card h4::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: var(--gradient-primary);
+    border-radius: 3px;
+}
+
+.project-card ul {
+    padding-left: 18px;
+}
+
+.project-card ul li {
+    margin-bottom: 10px;
+}
+
+.tech-icon {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--bg-light), var(--bg-lighter));
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+}
+
+.tech-icon:hover {
+    transform: none;
+}
+
+.tech-stack {
+    margin-top: 30px;
+}
+
+footer {
+    position: relative;
+    text-align: center;
+    padding: 0;
+    margin-top: 60px;
+    overflow: visible;
+}
+
+footer::before {
+    display: none;
+}
+
+.footer-capsule {
+    background: var(--gradient-primary);
+    color: var(--white);
+    border-radius: 50px 50px 0 0;
+    padding: 15px 40px;
+    box-shadow: 0 -5px 20px var(--transparent-black-1);
+    position: relative;
+    top: 0;
+    transition: all 0.3s ease;
+    margin-bottom: 0;
+}
+
+.footer-capsule:hover {
+    transform: none;
+}
+
+.footer-link {
+    color: var(--transparent-white);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer-link:hover {
+    color: var(--transparent-white);
+    text-decoration: none;
+}
+
+.back-to-top {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    width: 45px;
+    height: 45px;
+    background: var(--white);
+    color: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+    opacity: 0;
+    z-index: 1000;
+}
+
+.back-to-top:hover {
+    opacity: 0.9;
+    transform: none;
+}
+
+/* Styling untuk kartu */
+.card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: none;
+}
+
+.card-header {
+    background: var(--gradient-primary);
+    color: var(--white);
+    font-weight: 600;
+    border: none;
+    padding: 15px 20px;
+}
+
+.btn-primary {
+    background: var(--gradient-primary);
+    border: none;
+    border-radius: 50px;
+    padding: 10px 30px;
+    font-weight: 600;
+    box-shadow: var(--shadow-primary);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: var(--gradient-secondary);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-primary-lg);
+}
+
+.text-primary {
+    color: var(--primary-color) !important;
+}
+
+.text-success {
+    color: var(--secondary-color) !important;
+}
+
+/* Konsolidasi kelas loading */
+.loading {
+    display: none;
+    text-align: center;
+    padding: 50px 0;
+    color: var(--primary-color);
+}
+
+.loading .spinner-grow {
+    width: 3rem;
+    height: 3rem;
+}
+
+.loading p {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+/* Konsolidasi kelas result-card */
+.result-card {
+    background-color: var(--white);
+    border-radius: 20px;
+    border: none;
+    box-shadow: 0 15px 40px var(--transparent-primary-08);
+    overflow: hidden;
+}
+
+/* Konsolidasi kelas result-section */
+.result-section {
+    display: none;
+    margin-top: 50px;
+}
+
+/* Styling baru untuk hero section agar memenuhi seluruh layar */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: var(--gradient-primary);
+    margin-top: 0;
+    padding: 0;
+}
+
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.2) 0%, transparent 12%),
+        radial-gradient(circle at 70% 60%, rgba(255, 255, 255, 0.15) 0%, transparent 20%),
+        radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 15%);
+    z-index: 1;
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--white);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero-section .lead {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-bottom: 30px;
+}
+
+.hero-section .cta-button {
+    font-size: 1.1rem;
+    padding: 12px 30px;
+}
+
+.feature-card {
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    transition: transform 0.3s ease;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    box-shadow: var(--shadow-lg);
+}
+
+.feature-card:hover {
+    transform: none;
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.cta-button {
+    background: var(--white);
+    color: var(--primary-color);
+    border: none;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 700;
+    box-shadow: var(--shadow-primary-lg);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.cta-button:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-primary-xl);
+}
+
+/* Styling untuk halaman app/index yang lebih modern */
+.app-container {
+    padding-top: 90px;
+    padding-bottom: 30px;
+}
+
+.app-header {
+    margin-bottom: 30px;
+    padding: 30px 0;
+    background: linear-gradient(135deg, var(--bg-light), var(--bg-lighter));
+    border-radius: 0 0 50px 50px;
+    box-shadow: 0 10px 30px var(--transparent-primary-05);
+}
+
+.app-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.app-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    margin-bottom: 20px;
+}
+
+.divider-gradient {
+    height: 5px;
+    width: 100px;
+    background: var(--gradient-primary);
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+.instruction-card {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.instruction-card:hover {
+    transform: none;
+}
+
+.steps-container {
+    margin-top: 20px;
+}
+
+.steps {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.step-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    background: var(--transparent-primary-05);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-md);
+}
+
+.step-item:hover {
+    transform: none;
+}
+
+.step-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    background: var(--gradient-primary);
+    color: var(--white);
+    border-radius: 50%;
+    font-weight: bold;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.step-text {
+    font-size: 1rem;
+}
+
+.input-main-card {
+    border-radius: 15px;
+    border: none;
+    overflow: hidden;
+    box-shadow: 0 10px 30px var(--transparent-primary-08);
+}
+
+.input-card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: var(--shadow-lg);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.input-card:hover {
+    transform: none;
+}
+
+.input-icon {
+    font-size: 1.2rem;
+    margin-right: 10px;
+    display: inline-block;
+}
+
+.optimize-btn {
+    padding: 12px 40px;
+    font-size: 1.1rem;
+    transition: all 0.4s ease;
+}
+
+.optimize-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px var(--transparent-primary-2);
+}
+
+.result-item-card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    padding: 20px 0;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-lg);
+    height: 100%;
+}
+
+.result-item-card:hover {
+    transform: none;
+}
+
+.result-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.result-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 15px 0;
+}
+
+.visualization-title {
+    font-weight: 600;
+    color: var(--text-medium);
+    margin-top: 10px;
+}
+
+.plot-container {
+    background: var(--white);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: var(--shadow-lg);
+    transition: all 0.3s ease;
+}
+
+.plot-container:hover {
+    transform: none;
+}
+
+.interpretation-card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px var(--transparent-primary-05);
+}
+
+.interpretation-list {
+    padding-left: 10px;
+    list-style-type: none;
+}
+
+.interpretation-list li {
+    padding: 8px 0;
+}
+
+.conclusion-box {
+    margin-top: 20px;
+    padding: 15px;
+    background: var(--transparent-primary-05);
+    border-radius: 10px;
+    border-left: 4px solid var(--secondary-color);
+}
+
+/* Responsiveness */
+/* Large Devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .navbar-container {
+        top: 25px;
+        max-width: 500px;
+    }
+    
+    .navbar-capsule {
+        padding: 12px 25px;
+    }
+    
+    .navbar-capsule .nav-link {
+        padding: 10px 25px;
+        font-size: 1.1rem;
+    }
+}
+
+/* Medium Devices (desktops, 992px to 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .navbar-container {
+        top: 22px;
+        max-width: 450px;
+    }
+    
+    .navbar-capsule {
+        padding: 10px 20px;
+    }
+    
+    .navbar-capsule .nav-link {
+        padding: 8px 20px;
+        font-size: 1rem;
+    }
+}
+
+/* Small Devices (tablets, 768px to 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+    .navbar-container {
+        top: 18px;
+        max-width: 400px;
+    }
+    
+    .navbar-capsule {
+        padding: 8px 15px;
+    }
+    
+    .navbar-capsule .nav-link {
+        padding: 7px 15px;
+        font-size: 0.95rem;
+    }
+}
+
+/* Extra Small Devices (tablets and phones, less than 768px) */
+@media (max-width: 768px) {
+    .app-title {
+        font-size: 2.5rem;
+    }
+    
+    /* Navbar responsive styling for mobile */
+    .navbar-container {
+        top: 10px;
+        width: 90%;
+    }
+    
+    .navbar-capsule {
+        padding: 6px 10px;
+        width: 100%;
+        max-width: 170px;
+        margin: 0 auto;
+    }
+    
+    .navbar-capsule .nav-link {
+        padding: 5px 10px;
+        margin: 0 2px;
+        font-size: 0.9rem;
+    }
+    
+    /* Other existing mobile styles */
+    .steps {
+        gap: 10px;
+    }
+    
+    .step-item {
+        padding: 8px 12px;
+    }
+    
+    .step-number {
+        width: 25px;
+        height: 25px;
+        font-size: 0.9rem;
+    }
+    
+    .step-text {
+        font-size: 0.9rem;
+    }
+    
+    .result-value {
+        font-size: 2rem;
+    }
+    
+    .result-icon {
+        font-size: 2rem;
+    }
+}
+
+/* Ukuran sangat kecil (small phones) */
+@media (max-width: 480px) {
+    .navbar-capsule {
+        max-width: 220px;
+        padding: 8px 12px;
+    }
+    
+    .navbar-capsule .nav-link {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+        margin: 0 4px;
+    }
+    
+    .navbar-container {
+        top: 12px;
+        width: 95%;
+    }
+}
+
+/* Ukuran sangat-sangat kecil (extra small phones) */
+@media (max-width: 320px) {
+    .navbar-capsule {
+        max-width: 250px;
+        padding: 6px 8px;
+    }
+    
+    .navbar-capsule .nav-link {
+        padding: 4px 8px;
+        font-size: 0.8rem;
+    }
+}

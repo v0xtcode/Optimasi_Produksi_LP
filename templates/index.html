@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optimasi Produksi - Linear Programming</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='style.css', v=2) }}" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar Kapsul Glassmorphism -->
+    <div class="navbar-container">
+        <div class="navbar-capsule">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/app">Aplikasi</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="app-container">
+        <div class="app-header">
+            <div class="container">
+                <div class="row mb-4">
+                    <div class="col-md-12 text-center" data-aos="fade-up">
+                        <h1 class="app-title">Optimasi Produksi</h1>
+                        <p class="app-subtitle">Menggunakan Metode Linear Programming</p>
+                        <div class="divider-gradient mx-auto"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container" style="margin-top: 30px;">
+            <div class="row">
+                <div class="col-md-12" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card mb-4 instruction-card">
+                        <div class="card-header">
+                            <i class="bi bi-info-circle-fill me-2"></i>Penjelasan
+                        </div>
+                        <div class="card-body instructions">
+                            <p>Aplikasi ini membantu perusahaan menentukan jumlah optimal produk yang harus diproduksi untuk memaksimalkan keuntungan dengan mempertimbangkan keterbatasan sumber daya.</p>
+                            <div class="steps-container">
+                                <h5><strong>Cara Penggunaan:</strong></h5>
+                                <div class="steps">
+                                    <div class="step-item">
+                                        <div class="step-number">1</div>
+                                        <div class="step-text">Isi semua data yang diminta pada formulir di bawah ini</div>
+                                    </div>
+                                    <div class="step-item">
+                                        <div class="step-number">2</div>
+                                        <div class="step-text">Klik tombol "Optimasi" untuk melihat hasil perhitungan</div>
+                                    </div>
+                                    <div class="step-item">
+                                        <div class="step-number">3</div>
+                                        <div class="step-text">Hasil akan ditampilkan berupa jumlah produk yang harus diproduksi dan visualisasi grafik</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card input-main-card">
+                        <div class="card-header">
+                            <i class="bi bi-pencil-square me-2"></i>Input Data
+                        </div>
+                        <div class="card-body">
+                            <form id="optimizationForm">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="card input-card mb-3" data-aos="fade-right" data-aos-delay="300">
+                                            <div class="card-header">
+                                                <span class="input-icon profit-icon">💰</span>Keuntungan per Produk
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="mb-3">
+                                                    <label for="profit_a" class="form-label">Keuntungan Produk A (Rp)</label>
+                                                    <input type="number" class="form-control" id="profit_a" name="profit_a" required min="0" step="0.01" value="5000">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="profit_b" class="form-label">Keuntungan Produk B (Rp)</label>
+                                                    <input type="number" class="form-control" id="profit_b" name="profit_b" required min="0" step="0.01" value="7000">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="card input-card mb-3" data-aos="fade-right" data-aos-delay="400">
+                                            <div class="card-header">
+                                                <span class="input-icon resources-icon">📦</span>Ketersediaan Sumber Daya
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="mb-3">
+                                                    <label for="material_a_available" class="form-label">Ketersediaan Bahan A</label>
+                                                    <input type="number" class="form-control" id="material_a_available" name="material_a_available" required min="0" step="0.01" value="100">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="material_b_available" class="form-label">Ketersediaan Bahan B</label>
+                                                    <input type="number" class="form-control" id="material_b_available" name="material_b_available" required min="0" step="0.01" value="80">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="labor_available" class="form-label">Ketersediaan Tenaga Kerja (jam)</label>
+                                                    <input type="number" class="form-control" id="labor_available" name="labor_available" required min="0" step="0.01" value="120">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="card input-card mb-3" data-aos="fade-left" data-aos-delay="300">
+                                            <div class="card-header">
+                                                <span class="input-icon material-a-icon">🧱</span>Kebutuhan Bahan A
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="mb-3">
+                                                    <label for="material_a_for_a" class="form-label">Bahan A untuk Produk A</label>
+                                                    <input type="number" class="form-control" id="material_a_for_a" name="material_a_for_a" required min="0" step="0.01" value="2">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="material_a_for_b" class="form-label">Bahan A untuk Produk B</label>
+                                                    <input type="number" class="form-control" id="material_a_for_b" name="material_a_for_b" required min="0" step="0.01" value="1">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="card input-card mb-3" data-aos="fade-left" data-aos-delay="350">
+                                            <div class="card-header">
+                                                <span class="input-icon material-b-icon">🧩</span>Kebutuhan Bahan B
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="mb-3">
+                                                    <label for="material_b_for_a" class="form-label">Bahan B untuk Produk A</label>
+                                                    <input type="number" class="form-control" id="material_b_for_a" name="material_b_for_a" required min="0" step="0.01" value="1">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="material_b_for_b" class="form-label">Bahan B untuk Produk B</label>
+                                                    <input type="number" class="form-control" id="material_b_for_b" name="material_b_for_b" required min="0" step="0.01" value="2">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="card input-card mb-3" data-aos="fade-left" data-aos-delay="400">
+                                            <div class="card-header">
+                                                <span class="input-icon labor-icon">👷‍♂️</span>Kebutuhan Tenaga Kerja
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="mb-3">
+                                                    <label for="labor_for_a" class="form-label">Tenaga Kerja untuk Produk A (jam)</label>
+                                                    <input type="number" class="form-control" id="labor_for_a" name="labor_for_a" required min="0" step="0.01" value="3">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="labor_for_b" class="form-label">Tenaga Kerja untuk Produk B (jam)</label>
+                                                    <input type="number" class="form-control" id="labor_for_b" name="labor_for_b" required min="0" step="0.01" value="2">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="text-center mt-4" data-aos="zoom-in" data-aos-delay="500">
+                                    <button type="submit" class="btn btn-primary btn-lg optimize-btn">
+                                        <i class="bi bi-calculator me-2"></i>Optimasi
+                                    </button>
+                                </div>
+                            </form>
+
+                            <div class="loading">
+                                <div class="spinner-grow text-primary" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                                <p class="mt-3">Sedang melakukan optimasi...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row result-section" id="resultSection">
+                <div class="col-md-12">
+                    <div class="card result-card">
+                        <div class="card-header">
+                            <i class="bi bi-graph-up me-2"></i>Hasil Optimasi
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+                                    <div class="card result-item-card">
+                                        <div class="card-body text-center">
+                                            <div class="result-icon">🅰️</div>
+                                            <h5 class="card-title">Produk A</h5>
+                                            <h2 id="productA" class="mb-0 text-primary result-value">0</h2>
+                                            <p class="text-muted">unit</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+                                    <div class="card result-item-card">
+                                        <div class="card-body text-center">
+                                            <div class="result-icon">🅱️</div>
+                                            <h5 class="card-title">Produk B</h5>
+                                            <h2 id="productB" class="mb-0 text-primary result-value">0</h2>
+                                            <p class="text-muted">unit</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
+                                    <div class="card result-item-card">
+                                        <div class="card-body text-center">
+                                            <div class="result-icon">💲</div>
+                                            <h5 class="card-title">Total Keuntungan</h5>
+                                            <h2 id="totalProfit" class="mb-0 text-success result-value">Rp 0</h2>
+                                            <p class="text-muted">rupiah</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mt-4">
+                                <div class="col-md-12" data-aos="fade-up" data-aos-delay="400">
+                                    <h5 class="mb-3 visualization-title"><i class="bi bi-bar-chart-line me-2"></i>Visualisasi Grafik:</h5>
+                                    <div class="plot-container text-center">
+                                        <img id="plotImage" src="" alt="Visualisasi Linear Programming" class="img-fluid rounded">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mt-4">
+                                <div class="col-md-12" data-aos="fade-up" data-aos-delay="500">
+                                    <div class="card interpretation-card">
+                                        <div class="card-header">
+                                            <i class="bi bi-lightbulb me-2"></i>Interpretasi Hasil
+                                        </div>
+                                        <div class="card-body">
+                                            <p>Berdasarkan perhitungan optimasi Linear Programming, untuk memaksimalkan keuntungan dengan kendala sumber daya yang ada, perusahaan sebaiknya:</p>
+                                            <ul class="interpretation-list">
+                                                <li><i class="bi bi-check-circle-fill me-2"></i>Memproduksi <span id="interpretProductA" class="fw-bold text-primary">0</span> unit Produk A</li>
+                                                <li><i class="bi bi-check-circle-fill me-2"></i>Memproduksi <span id="interpretProductB" class="fw-bold text-primary">0</span> unit Produk B</li>
+                                            </ul>
+                                            <div class="conclusion-box">
+                                                <p class="mb-0">Dengan strategi produksi ini, perusahaan dapat memperoleh keuntungan maksimal sebesar <span id="interpretProfit" class="fw-bold text-success">Rp 0</span>.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-auto footer-capsule">
+                    <p class="mb-0">&copy; 2025 - Dibuat oleh Kelompok 5</p>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Inisialisasi AOS
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+        
+        document.getElementById('optimizationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Tampilkan loading
+            document.querySelector('.loading').style.display = 'block';
+            document.getElementById('resultSection').style.display = 'none';
+            
+            // Ambil data form
+            const formData = new FormData(this);
+            
+            // Kirim data ke server
+            fetch('/optimize', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Sembunyikan loading
+                document.querySelector('.loading').style.display = 'none';
+                
+                if (data.status === 'success') {
+                    // Tampilkan hasil
+                    document.getElementById('resultSection').style.display = 'block';
+                    
+                    // Update tampilan dengan hasil
+                    document.getElementById('productA').textContent = data.product_a;
+                    document.getElementById('productB').textContent = data.product_b;
+                    document.getElementById('totalProfit').textContent = `Rp ${data.total_profit.toLocaleString('id-ID')}`;
+                    
+                    // Update interpretasi
+                    document.getElementById('interpretProductA').textContent = data.product_a;
+                    document.getElementById('interpretProductB').textContent = data.product_b;
+                    document.getElementById('interpretProfit').textContent = `Rp ${data.total_profit.toLocaleString('id-ID')}`;
+                    
+                    // Tampilkan plot
+                    document.getElementById('plotImage').src = 'data:image/png;base64,' + data.plot_url;
+                    
+                    // Scroll ke hasil dengan animasi
+                    document.getElementById('resultSection').scrollIntoView({ behavior: 'smooth' });
+                    
+                    // Re-initialize AOS untuk animasi elemen hasil
+                    setTimeout(() => {
+                        AOS.refresh();
+                    }, 500);
+                } else {
+                    alert('Error: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.querySelector('.loading').style.display = 'none';
+                alert('Terjadi kesalahan saat melakukan optimasi. Silakan coba lagi.');
+            });
+        });
+
+        // Script untuk tombol Back to Top
+        document.querySelector('.back-to-top').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Tampilkan atau sembunyikan tombol Back to Top berdasarkan scroll
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                document.querySelector('.back-to-top').style.opacity = '1';
+            } else {
+                document.querySelector('.back-to-top').style.opacity = '0';
+            }
+        });
+    </script>
+</body>
+</html> 
